@@ -46,3 +46,5 @@ print(output)
 #Formatting a string. Super cool.
 template = "Hello my name is {}, and I really enjoy {}, have a great day."
 print(template.format('Chad', 'Python'))
+
+
