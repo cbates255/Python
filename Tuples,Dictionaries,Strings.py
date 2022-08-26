@@ -21,3 +21,15 @@ favcolors["larry"] = "orange"
 print(list(favcolors.keys()))
 print(list(favcolors.values()))
 
+mensgroup = list(favcolors.keys())
+print(mensgroup)
+colorsgroup = list(favcolors.values())
+print(colorsgroup)
+
+#Now doing some work with strings
+sample_string = "football"
+print(sample_string.capitalize())
+print(sample_string.upper())
+
+
+
