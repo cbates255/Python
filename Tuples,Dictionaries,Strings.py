@@ -17,5 +17,7 @@ print(testlist)
 favcolors = {"chad": "blue", "chris": "red", "don": "green"}
 print(favcolors["chad"])
 print("chris" in favcolors)
+favcolors["larry"] = "orange"
 print(list(favcolors.keys()))
 print(list(favcolors.values()))
+
