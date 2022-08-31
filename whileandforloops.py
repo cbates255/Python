@@ -22,3 +22,20 @@ for color in colors:
     elif color == "purple":
         break
     
+for i in range(10):
+    print("Repeating")
+
+upper_number = int(input("How many numbers to input: "))
+for number in range(1, upper_number + 1):
+    if number % 3 == 0 and number % 5 == 0:
+        print("Fizzbuzz")
+    elif number % 3:
+        print("Fizz")
+    elif number % 5:
+        print("Buzz")
+    else:
+        print("Number")
+    
+
+
+    
