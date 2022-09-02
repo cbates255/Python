@@ -10,3 +10,5 @@ def check_list_for_string(s, l, case_sensitive = False):
         print(s + " is in")      
     else:
         print(s + " is not in")
+        
+check_list_for_string("long", li_list, case_sensitive = False)
