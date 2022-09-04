@@ -14,5 +14,3 @@ def ec2_name_gen(how_many, dept,):
             numbers = random.sample(range(100, 999), k=1)
             print (dept.title()+'-'+letterlist+str(*numbers))
             counter += 1
-            
-ec2_name_gen(3, 'marketing')
