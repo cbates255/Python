@@ -8,3 +8,5 @@ objects=s3_resource.list_objects(Bucket='testing784512')['Contents']
 print(len(objects))
 #The above gives the number of objects in the bucket. 
 
+for object in objects:
+    print(object['Key'])
