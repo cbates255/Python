@@ -35,10 +35,15 @@ def get_message(sqs, QueueUrl):
     response = sqs.receive_message(
     QueueUrl=QueueUrl,
 )
+    
+    out_messages=[]
+    
     messages=response['Messages']
     for message in messages:
         data=message['Body']
         print("The uploaded message is: " + data)
+        out_messages.append(data)
+        return out_messages
 
 if __name__=="__main__":
     sqs=boto3.client('sqs')
