@@ -1,3 +1,4 @@
+from venv import create
 import boto3
 
 sqs=boto3.client("sqs")
@@ -21,10 +22,29 @@ def delete_queue(sqs, QueueUrl):
     QueueUrl=QueueUrl
 )
     print('Queue deleted')
+    
+def create_message(sqs, QueueUrl, message):
+    response = sqs.send_message(
+    QueueUrl=QueueUrl,
+    MessageBody=message,
+)
+
+print('Message sent')
+
+def get_message(sqs, QueueUrl):
+    response = sqs.receive_message(
+    QueueUrl=QueueUrl,
+)
+    messages=response['Messages']
+    for message in messages:
+        data=message['Body']
+        print("The uploaded message is: " + data)
 
 if __name__=="__main__":
     sqs=boto3.client('sqs')
     QN='gold_from_function-3'
     create_queue(sqs, QN)
     qurl=get_queue_url(sqs, QN)
+    create_message(sqs, qurl, "Learning automation!")
+    get_message(sqs, qurl)
     delete_queue(sqs, qurl)
