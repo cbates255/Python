@@ -75,4 +75,8 @@ def lambda_handler(event, context):
                 print('Tagging resource ' + resourceid)
             ec2.create_tags(Resources=ids, Tags=[
                 {'Key': 'Owner', 'Value': user},
-                {'Key': 'PrincipalId', 'Value': principal}])            
+                {'Key': 'PrincipalId', 'Value': principal}])
+
+        print('Done tagging.')            
+
+        return True
