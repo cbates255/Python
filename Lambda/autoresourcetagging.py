@@ -2,6 +2,7 @@
 # /snapshot/image
 
 import json
+import resource
 import boto3
 
 ec2 = boto3.resource('ec2')
@@ -63,4 +64,15 @@ def lambda_handler(event, context):
             ids.append(detail['responseElements']['imageId'])
             print(ids)
 
-        elif
+        elif eventname == 'CreateSnapshot':
+            ids.append(detail['responseElements']['snapshotId'])
+            print(ids)
+        else:
+            print('Not supported action')
+
+        if ids:
+            for resourceid in ids:
+                print('Tagging resource ' + resourceid)
+            ec2.create_tags(Resources=ids, Tags=[
+                {'Key': 'Owner', 'Value': user},
+                {'Key': 'PrincipalId', 'Value': principal}])            
