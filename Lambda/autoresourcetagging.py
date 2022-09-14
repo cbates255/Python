@@ -3,6 +3,7 @@
 
 import json
 import resource
+from tkinter import E
 import boto3
 
 ec2 = boto3.resource('ec2')
@@ -77,6 +78,10 @@ def lambda_handler(event, context):
                 {'Key': 'Owner', 'Value': user},
                 {'Key': 'PrincipalId', 'Value': principal}])
 
-        print('Done tagging.')            
+        print('Done tagging.')    
+
 
         return True
+    except Exception as e:
+        print('Something went wrong: ' + str(e))
+        return False
