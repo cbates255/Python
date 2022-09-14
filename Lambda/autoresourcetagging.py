@@ -15,3 +15,12 @@ def lambda_handler(event, context):
     try:
         region = event['region']
         detail = event['detail']
+        eventname = detail['eventName']
+        arn = detail['userIdentity']['arn']
+        principal = detail['userIdentity']['principalId']
+        user_type = detail['userIdentity']['type']
+
+        if user_type == 'IAMUser':
+            user = detail['userIdentity']['userName']
+        else:
+            user = principal.split(': ')[1]
