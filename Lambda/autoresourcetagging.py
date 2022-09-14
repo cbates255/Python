@@ -24,3 +24,12 @@ def lambda_handler(event, context):
             user = detail['userIdentity']['userName']
         else:
             user = principal.split(': ')[1]
+
+        print('arn: ' + arn)
+        print('principalId: ' + principal)
+        print('region: ' + region)
+        print('eventName: ' + eventname)
+        print('detail: ' + str(detail))
+        print('user: ' + user)
+
+        
