@@ -32,4 +32,10 @@ def lambda_handler(event, context):
         print('detail: ' + str(detail))
         print('user: ' + user)
 
-        
+        if not detail['responseElements']:
+            print('No responseElements found')
+            if detail['errorCode']:
+                print('errorCode: ' + detail['errorCode'])
+            if detail['errorMessage']:
+                print('errorMessage: ' + detail['errorMessage'])
+            return False
