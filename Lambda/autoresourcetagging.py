@@ -39,3 +39,28 @@ def lambda_handler(event, context):
             if detail['errorMessage']:
                 print('errorMessage: ' + detail['errorMessage'])
             return False
+
+        if eventname == 'CreateVolume':
+            ids.append(detail['responseElements']['volumeId'])
+            print(ids)
+
+        elif eventname == 'RunInstances':
+            items = detail['responseElements']['instancesSet']['items']
+            for item in items:
+                ids.append(item['instanceId'])
+            print(ids)
+            print('number of instances: ' + str(len(ids)))
+
+            base = ec2.instances.filter(InstanceIds=ids)
+
+            for instance in base:
+                for vol in instance.volumes.all():
+                    ids.append(vol.id)
+                for eni in instance.network_interfaces:
+                    ids.append(eni.id)
+
+        elif eventname == 'CreateImage':
+            ids.append(detail['responseElements']['imageId'])
+            print(ids)
+
+        elif
