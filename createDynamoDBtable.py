@@ -9,7 +9,7 @@ response = db.create_table(
         },
         {
             'AttributeName': 'MessageID',
-            'AttributeType': 'N'
+            'AttributeType': 'S'
         },
     ],
     TableName='15projectTABLE',
