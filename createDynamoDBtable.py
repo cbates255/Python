@@ -11,10 +11,6 @@ response = db.create_table(
             'AttributeName': 'MessageID',
             'AttributeType': 'N'
         },
-        {
-            'AttributeName': 'MessageBody',
-            'AttributeType': 'S'
-        },
     ],
     TableName='15projectTABLE',
     KeySchema=[
