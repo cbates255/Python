@@ -1,7 +1,8 @@
 import boto3
 
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('15projectTABLE')
+ec2 = boto3.resource('ec2')
+filter = [{'Name': 'tag:testing', 'Values': ['test']}]
+response = ec2.instances.filter(Filters=filter)
+ec2.instances.filter(Filters=filter).terminate()
 
-response = table.delete()
-print(response)
+print('The instance ', *response, ' has been terminated!')
